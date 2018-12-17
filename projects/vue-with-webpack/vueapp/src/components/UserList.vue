@@ -26,6 +26,7 @@
 
 <script>
 import UserApi from "@/services/api/UserServices";
+import axios from "axios";
 export default {
   name: "UserList",
   props: {
@@ -42,8 +43,8 @@ export default {
     };
   },
   methods: {
-    editUser(id) {
-      console.log("Edit user " + id);
+    editUser: function(id) {
+      this.$router.push("/users/edit/" + id);
     }
   },
   created: function() {

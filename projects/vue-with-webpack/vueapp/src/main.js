@@ -7,7 +7,6 @@ import UserCreation from './components/UserCreation';
 import Vuex from 'vuex';
 import UserApi from '@/services/api/UserServices'
 
-
 Vue.config.productionTip = false
 Vue.use(VueRouter);
 Vue.use(Vuex);
@@ -21,11 +20,12 @@ const router = new VueRouter({
       component: UserList
     },
     {
-      path: '/user/edit/:id',
+      path: '/users/edit/:id',
       component: UserCreation
     },
   ]
 })
+
 
 
 const store = new Vuex.Store({
@@ -39,15 +39,14 @@ const store = new Vuex.Store({
   },
   actions: {
     refreshUsers(context) {
-      UserApi.getUsers().
-      then((response) => {
-          context.commit("updateUsers", response);
-        })
-        .catch((response) => {
-          console.log("Something went wrong while getting users");
-        });
+      UserApi.getUsers().then(users => {
+        if (users.length == 0) {
+          UserApi.createNewUsers();
+        }
+        console.log(users);
+      });
     }
-  }
+  },
 });
 
 /* eslint-disable no-new */

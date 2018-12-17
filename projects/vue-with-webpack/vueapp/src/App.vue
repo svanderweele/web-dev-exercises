@@ -36,7 +36,7 @@ export default {
         console.log("[AjaxDeleteResponse] " + response.body.message);
       });
     }.bind(this)
-  }
+  },
 };
 </script>
 
