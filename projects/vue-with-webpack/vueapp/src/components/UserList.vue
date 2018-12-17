@@ -10,7 +10,13 @@
             width="25"
             height="20"
           >
-          <span>{{user.name.title}}. {{user.name.first}} {{user.name.last}}</span>
+          <span>
+            {{user.name.title}}. {{user.name.first}} {{user.name.last}}
+            <a
+              href="#"
+              v-on:click="editUser(user.id)"
+            >Edit</a>
+          </span>
         </div>
       </li>
     </ul>
@@ -35,7 +41,11 @@ export default {
       computed: {}
     };
   },
-
+  methods: {
+    editUser(id) {
+      console.log("Edit user " + id);
+    }
+  },
   created: function() {
     this.$store.dispatch("refreshUsers");
   }

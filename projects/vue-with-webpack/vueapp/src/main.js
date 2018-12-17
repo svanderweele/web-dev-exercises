@@ -41,7 +41,6 @@ const store = new Vuex.Store({
     refreshUsers(context) {
       UserApi.getUsers().
       then((response) => {
-          console.log(response);
           context.commit("updateUsers", response);
         })
         .catch((response) => {
