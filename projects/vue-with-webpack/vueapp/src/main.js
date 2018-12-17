@@ -21,7 +21,7 @@ const router = new VueRouter({
     },
     {
       path: '/users/edit/:id',
-      component: UserCreation
+      component: UserCreation,
     },
   ]
 })
@@ -40,14 +40,15 @@ const store = new Vuex.Store({
   actions: {
     refreshUsers(context) {
       UserApi.getUsers().then(users => {
-        if (users.length == 0) {
-          UserApi.createNewUsers();
+         if(users.length == 0){
+           UserApi.createNewUsers();
         }
-        console.log(users);
+        context.commit('updateUsers', users);
       });
     }
   },
 });
+
 
 /* eslint-disable no-new */
 new Vue({

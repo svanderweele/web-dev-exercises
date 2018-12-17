@@ -49,7 +49,47 @@ export default {
           resolve(response.data);
         });
     });
+  },
+  getUserById(id) {
+    return new Promise((resolve, reject) => {
+      axios.get("http://localhost:8081/users/get/" + id, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          resolve(response.data);
+        });
+    });
+  },
+  saveUser(user) {
+    return new Promise((resolve, reject) => {
+      axios.post("http://localhost:8081/users/save/", {
+          data: {
+            user: user
+          },
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          resolve(response.data);
+        });
+    });
+  },
+  deleteUser(id) {
+    return new Promise((resolve, reject) => {
+      axios.post("http://localhost:8081/users/delete/" + id, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => {
+          resolve(response.data);
+        });
+    });
   }
+
 
 
 }

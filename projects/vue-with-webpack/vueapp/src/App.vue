@@ -3,7 +3,7 @@
     <!-- <router-view/> -->
     <div class="user-creation-title">
       <div class="user-creation">
-        <UserCreation v-bind:saveUserCallback="saveUser" v-bind:deleteUserCallback="deleteUser"></UserCreation>
+        <UserCreation></UserCreation>
       </div>
     </div>
 

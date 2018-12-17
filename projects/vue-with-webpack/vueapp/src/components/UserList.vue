@@ -1,5 +1,6 @@
 <template>
   <div id="user-list">
+    <input type="button" value="Create New" v-on:click="createNewUser">
     <ul>
       <li class="user-simple-list" v-for="user in this.$store.state.users">
         <div class="user-simple-field">
@@ -11,11 +12,8 @@
             height="20"
           >
           <span>
-            {{user.name.title}}. {{user.name.first}} {{user.name.last}}
-            <a
-              href="#"
-              v-on:click="editUser(user.id)"
-            >Edit</a>
+            {{user.name.first}} {{user.name.last}}
+            <a href="#" v-on:click="editUser(user._id)">Edit</a>
           </span>
         </div>
       </li>
@@ -45,6 +43,9 @@ export default {
   methods: {
     editUser: function(id) {
       this.$router.push("/users/edit/" + id);
+    },
+    createNewUser() {
+      this.$router.push("/users/edit/0");
     }
   },
   created: function() {
