@@ -1,7 +1,7 @@
 <template>
   <div id="user-list">
     <ul>
-      <li class="user-simple-list" v-for="user in users">
+      <li class="user-simple-list" v-for="user in this.$store.state.users">
         <div class="user-simple-field">
           <img v-if="user.gender=='male'" src="../assets/man-selected.png" width="25" height="20">
           <img

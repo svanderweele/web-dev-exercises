@@ -9,7 +9,7 @@
 
     <div class="user-list-wrapper">
       <div class="user-list">
-        <Users/>
+        <UserList/>
       </div>
     </div>
   </div>

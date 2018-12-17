@@ -34,7 +34,6 @@ const store = new Vuex.Store({
   },
   mutations: {
     updateUsers(state, payload) {
-      console.log("Users are " + payload);
       state.users = payload;
     }
   },
